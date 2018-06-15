@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+    <link rel="stylesheet" type="text/css" href="style/css/wod.css">
+</head>
+<body>
+
+<main role="main" class="container">
+
+    <div id="app">
+        <!--<p>{{ workouts }}</p>
+        <p>{{ wodId }}</p>
+        <p>{{ wod }}</p>
+        <p>{{ workoutSets }}</p>-->
+
+        <!--<div v-for="workoutSet in wod.workoutSets">
+            <p>{{ workoutSet.title }}</p>
+            <p><pre>{{ workoutSet.instruction }}</pre></p>
+            <div v-for="workoutSetExercise in workoutSet.workoutSetExercises">
+                <p>{{ workoutSetExercise.title }}</p>
+                <p><pre>{{ workoutSetExercise.instruction }}</pre></p>
+            </div>
+        </div>-->
+
+        <div>
+
+            <b-card :title=workout.datePretty
+                    :sub-title=wod.title
+                    class="mb-2">
+                <p class="card-text">
+                    {{ wod.instruction }}
+                </p>
+            </b-card>
+
+            <div v-for="workoutSet in wod.workoutSets">
+                <b-card :header=workoutSet.title class="mb-2">
+                    <p class="card-text combo-instructions" v-if="workoutSet.instruction && workoutSet.instruction.length > 0">{{ workoutSet.instruction }}</p>
+                </b-card>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+<script type="text/javascript" src="js/wod.js"></script></body>
+</html>
